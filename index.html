@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #faf3ea; /* глубокий бежевый */
+            background-color: #faf3ea;
             color: #3f332c;
             line-height: 1.6;
             padding: 2rem 1rem;
@@ -60,7 +60,6 @@
             border-radius: 0 40px 40px 0;
         }
 
-        /* сетка блоков */
         .week-block {
             background: #fffbf7;
             border-radius: 36px;
@@ -252,24 +251,149 @@
 
         ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
         li { margin-bottom: 0.2rem; }
+
+        /* ======== TETRIS OVERLAY ======== */
+        #tetris-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.82);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #tetris-overlay.active { display: flex; }
+
+        #tetris-container {
+            background: #1a1a2e;
+            border-radius: 24px;
+            padding: 24px 28px;
+            box-shadow: 0 0 60px rgba(100,60,255,0.3);
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        #tetris-close {
+            position: absolute;
+            top: 12px; right: 18px;
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            font-size: 1.6rem;
+            cursor: pointer;
+            font-weight: 700;
+            z-index: 10;
+            transition: transform 0.15s;
+        }
+        #tetris-close:hover { transform: scale(1.2); }
+
+        #tetris-canvas {
+            border: 2px solid #3a3a5c;
+            border-radius: 8px;
+            background: #0f0f23;
+        }
+
+        .tetris-sidebar {
+            color: #c5c5e0;
+            min-width: 140px;
+        }
+        .tetris-sidebar h3 {
+            font-size: 1.5rem;
+            color: #a78bfa;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .tetris-stat {
+            margin-bottom: 10px;
+        }
+        .tetris-stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #7a7a9e;
+        }
+        .tetris-stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #e0e0ff;
+        }
+        #next-canvas {
+            border: 2px solid #3a3a5c;
+            border-radius: 8px;
+            background: #0f0f23;
+            margin-top: 4px;
+        }
+        .tetris-controls {
+            margin-top: 18px;
+            font-size: 0.72rem;
+            color: #5a5a7e;
+            line-height: 1.7;
+        }
+        .tetris-controls kbd {
+            background: #2a2a4a;
+            padding: 2px 7px;
+            border-radius: 4px;
+            color: #b0b0d0;
+            font-family: monospace;
+        }
+        #tetris-game-over {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15,15,35,0.95);
+            padding: 32px 48px;
+            border-radius: 18px;
+            text-align: center;
+            border: 2px solid #a78bfa;
+        }
+        #tetris-game-over h2 {
+            color: #ff6b6b;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        #tetris-game-over p {
+            color: #c5c5e0;
+            margin-bottom: 16px;
+        }
+        #tetris-restart {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            color: white;
+            border: none;
+            padding: 10px 32px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.15s;
+        }
+        #tetris-restart:hover { transform: scale(1.05); }
+
+        .tetris-hint {
+            color: #5a5a7e;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- ЗАГОЛОВОК (ПОЛНОСТЬЮ СОХРАНЯЕМ ВАШ ТЕКСТ) -->
     <h1>Меры детского развития</h1>
     <div class="subheader">
         ; Форма проведения и название мероприятия — полное описание всех блоков. Все даты, цели, задачи, результаты — без изменений.
     </div>
 
-    <!-- ===================== -->
-    <!-- БЛОК 1: ТЕКСТ №1 (МИР КОМПЛИМЕНТОВ) ПОЛНОСТЬЮ -->
-    <!-- ===================== -->
+    <!-- БЛОК 1: МИР КОМПЛИМЕНТОВ -->
     <div class="week-block">
         <span class="week-title">💬 ТЕКСТ 1 · МИР КОМПЛИМЕНТОВ</span>
         
-        <!-- ОРГАНИЗАТОР, ЦЕЛЬ, ЗАДАЧИ (ПОЛНОСТЬЮ) -->
         <div style="background: #fcf6f0; border-radius: 24px; padding: 1.5rem; margin-bottom: 2rem; border: 1px solid #eedad0;">
             <p style="font-size: 1.1rem; font-weight: 700; color: #67493b;">Организатор(-ы) проведения мероприятий; ГБПОУ «ЮУМК»</p>
             <p style="font-size: 1.1rem; font-weight: 600; color: #5c453b; margin-top: 0.8rem;">Цель проведения мероприятий; Развитие культуры доброжелательности и взаимоуважения через осознанное использование комплиментов</p>
@@ -310,9 +434,7 @@
             </div>
         </div>
 
-        <!-- КАРТОЧКИ МЕРОПРИЯТИЙ (4 ШТУКИ) СО ВСЕМИ ПОЛЯМИ -->
         <div class="card-grid">
-            <!-- 1. Виртуальная экскурсия -->
             <div class="event-item">
                 <div class="event-header">Виртуальная экскурсия «Путешествие по миру комплиментов»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Виртуальная экскурсия</span></div>
@@ -326,7 +448,6 @@
                 </div>
                 <div class="coord-block"><strong>Ответственный:</strong> Руководитель медиа-цеха Шершнева Е.В.<br> <span style="font-size: 0.85rem;">Источник: Бюджетное финансирование. Партнёр: АНО «Центр народного единства»</span></div>
             </div>
-            <!-- 2. Встреча с приглашенным гостем -->
             <div class="event-item">
                 <div class="event-header">Встреча с приглашенным гостем «Сила добрых слов»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Встреча с гостем</span></div>
@@ -340,7 +461,6 @@
                 </div>
                 <div class="coord-block"><strong>Ответственный:</strong> Зам.директора по ВР Колодий Е.Е.<br> <span style="font-size: 0.85rem;">Бюджетное финансирование. Партнёр: АНО «Центр народного единства»</span></div>
             </div>
-            <!-- 3. Конкурсная игровая программа -->
             <div class="event-item">
                 <div class="event-header">Конкурсная игровая программа «Право на доброе слово»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Конкурсная игровая программа</span></div>
@@ -354,7 +474,6 @@
                 </div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог доп.образования Осипов Р.В,<br> <span style="font-size: 0.85rem;">Бюджетное финансирование. Партнёр: АНО «Центр народного единства»</span></div>
             </div>
-            <!-- 4. Дискуссия -->
             <div class="event-item">
                 <div class="event-header">Дискуссия «Комплимент, как инструмент позитивного общения»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Дискуссия</span></div>
@@ -375,9 +494,7 @@
         </div>
     </div>
 
-    <!-- ===================== -->
-    <!-- БЛОК 2: ТЕКСТ №2 (ВЖИВУЮ / ОФЛАЙН) ПОЛНОСТЬЮ -->
-    <!-- ===================== -->
+    <!-- БЛОК 2: ЦИФРОВАЯ ГИГИЕНА -->
     <div class="week-block">
         <span class="week-title">📱 ТЕКСТ 2 · ЦИФРОВАЯ ГИГИЕНА / ОФЛАЙН</span>
         <div style="background: #f9f3ed; padding: 1.5rem; border-radius: 24px; margin-bottom: 1.8rem;">
@@ -385,7 +502,6 @@
             <p style="font-weight: 600; margin-top: 0.6rem;">Цель проведения мероприятий; Повысить навыки вербального общения, тренировка памяти и внимания</p>
         </div>
         <div class="card-grid">
-            <!-- Квест «Вживую» -->
             <div class="event-item">
                 <div class="event-header">Квест «Вживую»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Квест</span></div>
@@ -396,7 +512,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат и информационный продукт</span>Практика устного общения, выполненные задания квеста</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог доп.образования Осипов Р.В,<br> Бюджетное финансирование. Партнёр: Сетевое издание «Губерния - Южный Урал»</div>
             </div>
-            <!-- Открытый микрофон -->
             <div class="event-item">
                 <div class="event-header">Открытый микрофон «Вживую: открытый микрофон»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Открытый микрофон</span></div>
@@ -407,7 +522,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат</span>Каждый участник сформулировал минимум 1 личное наблюдение о времени без телефона, получены практические навыки публичного выступления, бумажные анкеты обратной связи</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог-организатор Назаров С.С.<br> Бюджет, партнёр: «Губерния - Южный Урал»</div>
             </div>
-            <!-- Познавательная игровая программа -->
             <div class="event-item">
                 <div class="event-header">Познавательная игровая программа «Без экрана – с правом»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Познавательная игровая программа</span></div>
@@ -418,7 +532,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат</span>Участник усвоили 3 базовых правила (на изображение, осторожность с персональными данными, действия при нарушении)</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог доп.образования Осипов Р.В,<br> Бюджетное финансирование. Партнёр: Сетевое издание «Губерния - Южный Урал»</div>
             </div>
-            <!-- Просмотр и обсуждение кинофильма -->
             <div class="event-item">
                 <div class="event-header">Просмотр и обсуждение кинофильма «Социальная дилемма»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Просмотр и обсуждение</span></div>
@@ -433,9 +546,7 @@
         <div class="org-footer-block">🎯 Задачи мероприятия полностью (см.текст) — все 1,2,3 для каждого дня сохранены. Источники финансирования: Бюджетное финансирование. Партнёры: Сетевое издание «Губерния - Южный Урал».</div>
     </div>
 
-    <!-- ===================== -->
-    <!-- БЛОК 3: ТЕКСТ №3 (МИР ЦВЕТНЫХ КАРАНДАШЕЙ) ПОЛНОСТЬЮ -->
-    <!-- ===================== -->
+    <!-- БЛОК 3: ЦВЕТНЫЕ КАРАНДАШИ -->
     <div class="week-block">
         <span class="week-title">🖍️ ТЕКСТ 3 · ЦВЕТНЫЕ КАРАНДАШИ / ТВОРЧЕСТВО</span>
         <div style="background: #faf0e9; padding: 1.5rem; border-radius: 24px; margin-bottom: 1.8rem;">
@@ -443,7 +554,6 @@
             <p style="font-weight: 600;">Цель проведения мероприятий; Популяризация творческого самовыражения и эстетическое воспитание</p>
         </div>
         <div class="card-grid">
-            <!-- Фестиваль -->
             <div class="event-item">
                 <div class="event-header">Фестиваль «Мир цветных карандашей»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Фестиваль</span></div>
@@ -454,7 +564,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат</span>Выставка рисунков карандашом, обмен техниками рисования</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог доп.образования Осипов Р.В,<br> Бюджет. Партнёр: ООО «Новый Книжный Центр»</div>
             </div>
-            <!-- Открытый микрофон Разноцветные мысли -->
             <div class="event-item">
                 <div class="event-header">Открытый микрофон «Разноцветные мысли»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Открытый микрофон</span></div>
@@ -465,7 +574,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат</span>Опыт публичного выступления, навык активного слушания, «Карта настроения»</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог-организатор Назаров С.С.<br> Бюджетное финансирование. Партнёр: ООО «Новый Книжный Центр»</div>
             </div>
-            <!-- Правовая палитра -->
             <div class="event-item">
                 <div class="event-header">Развлекательная игровая программа «Правовая палитра»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Развлекательная игровая программа</span></div>
@@ -476,7 +584,6 @@
                 <div class="result-box"><span class="result-icon">Практический результат и информационный продукт</span>Плакат-коллаж «//Кодекс цветных карандашей»</div>
                 <div class="coord-block"><strong>Ответственный:</strong> Педагог доп.образования Осипов Р.В,<br> Бюджетное финансирование. Партнёр: ООО «Новый Книжный Центр»</div>
             </div>
-            <!-- Виртуальная экскурсия За кулисы карандашной фабрики -->
             <div class="event-item">
                 <div class="event-header">Виртуальная экскурсия «За кулисы карандашной фабрики»</div>
                 <div class="meta-line"><span class="meta-label">Форма:</span><span class="meta-value"> Виртуальная экскурсия</span></div>
@@ -491,7 +598,7 @@
         <div class="org-footer-block">✅ Задачи: 1.Познакомить с базовыми цветами и техниками рисования карандашами. 2 Развить мелкую моторику, цветовое восприятие 3. Укрепить навыки сотрудничества и коммуникации / 1. Дать представление о жанре «открытый микрофон» 2. Закрепить понимание роли цвета и инструментов творчества. 3. Научить выделять главное и формулировать мысли. / 1. Образовательные: Познакомить с основными правами ребенка. 2. Развивающие: развивать логическое мышление, умение работать в команде, аргументировать 3. Воспитательная: воспитывать чувство равенства / 1. Показать процесс изготовления карандашей 2. Рассказать о профессиях шахтер и лесник 3. Воспитать ответственное отношение к природе.</div>
     </div>
 
-    <!-- ============= КОНТАКТЫ (ПОЛНЫЕ, БЕЗ СОКРАЩЕНИЙ) ============= -->
+    <!-- КОНТАКТЫ -->
     <div class="contacts-area">
         <div class="contact-left">
             <h2>📬 Контакты и информация</h2>
@@ -508,13 +615,355 @@
         </div>
     </div>
 
-    <!-- ФИНАЛЬНАЯ СТРОКА СОХРАННОСТИ -->
     <hr>
     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0.2rem; color: #6e5b50;">
         <span>📅 Все даты, время, аудитории, ответственные, целевые аудитории, источники финансирования, партнёры — в точности как в исходном тексте.</span>
         <span style="background: #e7d9cf; padding: 0.3rem 1.3rem; border-radius: 40px;">Бюджетное финансирование · 2026</span>
     </div>
     <div class="tiny-remark" style="text-align: right;">* сохранено правописание: «лиректора», «Петроаа А.В.», «ЗАДАННАЯ» и др.</div>
-</div> <!-- закрытие page -->
+</div>
+
+<!-- ============ TETRIS GAME OVERLAY ============ -->
+<div id="tetris-overlay">
+    <div id="tetris-container">
+        <button id="tetris-close" title="Закрыть (Esc)">✕</button>
+        <canvas id="tetris-canvas" width="300" height="600"></canvas>
+        <div class="tetris-sidebar">
+            <h3>ТЕТРИС</h3>
+            <div class="tetris-stat">
+                <div class="tetris-stat-label">Очки</div>
+                <div class="tetris-stat-value" id="tetris-score">0</div>
+            </div>
+            <div class="tetris-stat">
+                <div class="tetris-stat-label">Линии</div>
+                <div class="tetris-stat-value" id="tetris-lines">0</div>
+            </div>
+            <div class="tetris-stat">
+                <div class="tetris-stat-label">Уровень</div>
+                <div class="tetris-stat-value" id="tetris-level">1</div>
+            </div>
+            <div class="tetris-stat" style="margin-top:16px;">
+                <div class="tetris-stat-label">Следующая</div>
+                <canvas id="next-canvas" width="120" height="120"></canvas>
+            </div>
+            <div class="tetris-controls">
+                <kbd>←</kbd> <kbd>→</kbd> движение<br>
+                <kbd>↑</kbd> поворот<br>
+                <kbd>↓</kbd> ускорение<br>
+                <kbd>Space</kbd> сброс вниз<br>
+                <kbd>P</kbd> пауза<br>
+                <kbd>Esc</kbd> закрыть
+            </div>
+        </div>
+        <div id="tetris-game-over">
+            <h2>GAME OVER</h2>
+            <p>Очки: <span id="final-score">0</span></p>
+            <button id="tetris-restart">Играть снова</button>
+        </div>
+    </div>
+    <div class="tetris-hint">Нажмите <kbd style="background:#2a2a4a;padding:2px 7px;border-radius:4px;color:#b0b0d0;">Esc</kbd> чтобы закрыть</div>
+</div>
+
+<script>
+// ===== A+P KEY COMBO TO OPEN TETRIS =====
+(function() {
+    const keysDown = new Set();
+
+    document.addEventListener('keydown', function(e) {
+        keysDown.add(e.key.toLowerCase());
+        if (keysDown.has('a') && keysDown.has('p')) {
+            e.preventDefault();
+            openTetris();
+        }
+    });
+    document.addEventListener('keyup', function(e) {
+        keysDown.delete(e.key.toLowerCase());
+    });
+
+    // ===== TETRIS GAME ENGINE =====
+    const overlay = document.getElementById('tetris-overlay');
+    const canvas = document.getElementById('tetris-canvas');
+    const ctx = canvas.getContext('2d');
+    const nextCanvas = document.getElementById('next-canvas');
+    const nextCtx = nextCanvas.getContext('2d');
+    const scoreEl = document.getElementById('tetris-score');
+    const linesEl = document.getElementById('tetris-lines');
+    const levelEl = document.getElementById('tetris-level');
+    const gameOverEl = document.getElementById('tetris-game-over');
+    const finalScoreEl = document.getElementById('final-score');
+
+    const COLS = 10, ROWS = 20, BLOCK = 30;
+    const COLORS = ['#00f0f0','#0000f0','#f0a000','#f0f000','#00f000','#a000f0','#f00000'];
+
+    const SHAPES = [
+        [[1,1,1,1]],
+        [[1,0,0],[1,1,1]],
+        [[0,0,1],[1,1,1]],
+        [[1,1],[1,1]],
+        [[0,1,1],[1,1,0]],
+        [[0,1,0],[1,1,1]],
+        [[1,1,0],[0,1,1]]
+    ];
+
+    let board, current, next, score, lines, level, gameOver, paused, dropInterval, lastDrop, animId, tetrisActive = false;
+
+    function createBoard() {
+        return Array.from({length: ROWS}, () => Array(COLS).fill(0));
+    }
+
+    function randomPiece() {
+        const idx = Math.floor(Math.random() * SHAPES.length);
+        return {
+            shape: SHAPES[idx].map(r => [...r]),
+            color: COLORS[idx],
+            x: Math.floor(COLS / 2) - Math.ceil(SHAPES[idx][0].length / 2),
+            y: 0
+        };
+    }
+
+    function rotate(shape) {
+        const rows = shape.length, cols = shape[0].length;
+        const rotated = Array.from({length: cols}, () => Array(rows).fill(0));
+        for (let r = 0; r < rows; r++)
+            for (let c = 0; c < cols; c++)
+                rotated[c][rows - 1 - r] = shape[r][c];
+        return rotated;
+    }
+
+    function collides(board, piece, dx, dy, newShape) {
+        const s = newShape || piece.shape;
+        for (let r = 0; r < s.length; r++)
+            for (let c = 0; c < s[r].length; c++)
+                if (s[r][c]) {
+                    const nx = piece.x + c + dx;
+                    const ny = piece.y + r + dy;
+                    if (nx < 0 || nx >= COLS || ny >= ROWS) return true;
+                    if (ny >= 0 && board[ny][nx]) return true;
+                }
+        return false;
+    }
+
+    function merge(board, piece) {
+        piece.shape.forEach((row, r) =>
+            row.forEach((v, c) => {
+                if (v) {
+                    const y = piece.y + r;
+                    const x = piece.x + c;
+                    if (y >= 0) board[y][x] = piece.color;
+                }
+            })
+        );
+    }
+
+    function clearLines() {
+        let cleared = 0;
+        for (let r = ROWS - 1; r >= 0; r--) {
+            if (board[r].every(c => c)) {
+                board.splice(r, 1);
+                board.unshift(Array(COLS).fill(0));
+                cleared++;
+                r++;
+            }
+        }
+        if (cleared) {
+            const pts = [0, 100, 300, 500, 800];
+            score += (pts[cleared] || 800) * level;
+            lines += cleared;
+            level = Math.floor(lines / 10) + 1;
+            dropInterval = Math.max(50, 1000 - (level - 1) * 80);
+            scoreEl.textContent = score;
+            linesEl.textContent = lines;
+            levelEl.textContent = level;
+        }
+    }
+
+    function drawBlock(context, x, y, color, size) {
+        context.fillStyle = color;
+        context.fillRect(x * size, y * size, size - 1, size - 1);
+        context.fillStyle = 'rgba(255,255,255,0.18)';
+        context.fillRect(x * size, y * size, size - 1, 3);
+        context.fillRect(x * size, y * size, 3, size - 1);
+        context.fillStyle = 'rgba(0,0,0,0.15)';
+        context.fillRect(x * size + size - 3, y * size, 2, size - 1);
+        context.fillRect(x * size, y * size + size - 3, size - 1, 2);
+    }
+
+    function drawGhost() {
+        let ghostY = current.y;
+        while (!collides(board, {...current, y: ghostY}, 0, 1)) ghostY++;
+        ctx.globalAlpha = 0.18;
+        current.shape.forEach((row, r) =>
+            row.forEach((v, c) => {
+                if (v) drawBlock(ctx, current.x + c, ghostY + r, current.color, BLOCK);
+            })
+        );
+        ctx.globalAlpha = 1;
+    }
+
+    function draw() {
+        ctx.fillStyle = '#0f0f23';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // grid
+        ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+        for (let r = 0; r < ROWS; r++)
+            for (let c = 0; c < COLS; c++)
+                ctx.strokeRect(c * BLOCK, r * BLOCK, BLOCK, BLOCK);
+
+        // board
+        board.forEach((row, r) =>
+            row.forEach((color, c) => {
+                if (color) drawBlock(ctx, c, r, color, BLOCK);
+            })
+        );
+
+        if (current && !gameOver) {
+            drawGhost();
+            current.shape.forEach((row, r) =>
+                row.forEach((v, c) => {
+                    if (v) drawBlock(ctx, current.x + c, current.y + r, current.color, BLOCK);
+                })
+            );
+        }
+
+        // next piece preview
+        nextCtx.fillStyle = '#0f0f23';
+        nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+        if (next) {
+            const sz = 24;
+            const ox = Math.floor((120 - next.shape[0].length * sz) / 2);
+            const oy = Math.floor((120 - next.shape.length * sz) / 2);
+            next.shape.forEach((row, r) =>
+                row.forEach((v, c) => {
+                    if (v) {
+                        nextCtx.fillStyle = next.color;
+                        nextCtx.fillRect(ox + c * sz, oy + r * sz, sz - 1, sz - 1);
+                    }
+                })
+            );
+        }
+    }
+
+    function drop() {
+        if (!collides(board, current, 0, 1)) {
+            current.y++;
+        } else {
+            merge(board, current);
+            clearLines();
+            current = next;
+            next = randomPiece();
+            if (collides(board, current, 0, 0)) {
+                gameOver = true;
+                finalScoreEl.textContent = score;
+                gameOverEl.style.display = 'block';
+            }
+        }
+    }
+
+    function hardDrop() {
+        while (!collides(board, current, 0, 1)) {
+            current.y++;
+            score += 2;
+        }
+        scoreEl.textContent = score;
+        drop();
+    }
+
+    function gameLoop(time) {
+        if (!tetrisActive) return;
+        animId = requestAnimationFrame(gameLoop);
+        if (gameOver || paused) { draw(); return; }
+        if (time - lastDrop > dropInterval) {
+            drop();
+            lastDrop = time;
+        }
+        draw();
+    }
+
+    function startGame() {
+        board = createBoard();
+        score = 0; lines = 0; level = 1;
+        dropInterval = 1000; lastDrop = 0;
+        gameOver = false; paused = false;
+        current = randomPiece();
+        next = randomPiece();
+        scoreEl.textContent = '0';
+        linesEl.textContent = '0';
+        levelEl.textContent = '1';
+        gameOverEl.style.display = 'none';
+    }
+
+    function openTetris() {
+        if (tetrisActive) return;
+        tetrisActive = true;
+        overlay.classList.add('active');
+        startGame();
+        animId = requestAnimationFrame(gameLoop);
+    }
+
+    function closeTetris() {
+        tetrisActive = false;
+        overlay.classList.remove('active');
+        cancelAnimationFrame(animId);
+    }
+
+    document.getElementById('tetris-close').addEventListener('click', closeTetris);
+    document.getElementById('tetris-restart').addEventListener('click', () => {
+        startGame();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (!tetrisActive) return;
+        if (e.key === 'Escape') { closeTetris(); return; }
+        if (gameOver) return;
+        if (e.key === 'p' || e.key === 'P' || e.key === 'з' || e.key === 'З') {
+            // Only toggle pause if 'a' is NOT also held (to avoid conflict with A+P combo)
+            if (!keysDown.has('a')) {
+                paused = !paused;
+            }
+            return;
+        }
+        if (paused) return;
+
+        switch(e.key) {
+            case 'ArrowLeft':
+                if (!collides(board, current, -1, 0)) current.x--;
+                e.preventDefault();
+                break;
+            case 'ArrowRight':
+                if (!collides(board, current, 1, 0)) current.x++;
+                e.preventDefault();
+                break;
+            case 'ArrowDown':
+                if (!collides(board, current, 0, 1)) { current.y++; score += 1; scoreEl.textContent = score; }
+                e.preventDefault();
+                break;
+            case 'ArrowUp':
+                const rotated = rotate(current.shape);
+                let kick = 0;
+                if (collides(board, current, 0, 0, rotated)) {
+                    if (!collides(board, current, -1, 0, rotated)) kick = -1;
+                    else if (!collides(board, current, 1, 0, rotated)) kick = 1;
+                    else if (!collides(board, current, -2, 0, rotated)) kick = -2;
+                    else if (!collides(board, current, 2, 0, rotated)) kick = 2;
+                    else break;
+                }
+                current.shape = rotated;
+                current.x += kick;
+                e.preventDefault();
+                break;
+            case ' ':
+                hardDrop();
+                e.preventDefault();
+                break;
+        }
+    });
+
+    // Close on overlay background click
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeTetris();
+    });
+})();
+</script>
 </body>
 </html>
